@@ -1,23 +1,33 @@
 package com.alkemy.disney.disney.mapper;
 
+import com.alkemy.disney.disney.dto.CharacterBasicDTO;
 import com.alkemy.disney.disney.dto.CharacterDTO;
-import com.alkemy.disney.disney.dto.MovieDTO;
 import com.alkemy.disney.disney.entity.Character;
+import com.alkemy.disney.disney.entity.Movie;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
 public class CharacterMapper {
 
+    @Autowired @Lazy
+    private MovieMapper movieMapper;
+
     public Character characterDTO_characterEntity(CharacterDTO dto){
 
         Character character = new Character();
+        Movie movie = new Movie();
+
 
         character.setName(dto.getName());
-        character.setImagen(dto.getImagen());
+        character.setImagen(dto.getImage());
         character.setAge(dto.getAge());
         character.setWeight(dto.getWeight());
+        character.setHistory(dto.getHistory());
 
         return character;
     }
@@ -31,14 +41,50 @@ public class CharacterMapper {
         dto.setAge(savedCharacter.getAge());
         dto.setWeight(savedCharacter.getWeight());
         dto.setName(savedCharacter.getName());
-        dto.setImagen(savedCharacter.getImagen());
-        if (loadMovies){        // Todo VER BIEN COMO TRABAJAR PARA SETEAR LAS PELICULAS RELACIONADAS CON ÉSTE if (Como envío el boolean?)
-            List<MovieDTO>moviesDTO = movieEntityList_movieDTOList(savedCharacter.getMovies()); //Todo ARMAR EL Método "movieEntityList_movieDTOList" en MovieMapper Y Hacer AutoWired de MovieMapper
-            dto.setMoviesDTO(moviesDTO); //VER Y REVISAR
+        dto.setImage(savedCharacter.getImagen());
+        if (loadMovies){
+            dto.setMoviesDTO(movieMapper.entityList_movieDTOList(savedCharacter.getMovies(),false)); //VER Y REVISAR
+        }
+        return dto;
 
+    }
+    public List<Character>characterList(List<CharacterDTO>characterDTOList){
+
+        List<Character>characters=new ArrayList<>();
+
+        for (CharacterDTO c:characterDTOList) {
+
+            characters.add(characterDTO_characterEntity(c));
 
         }
+        return characters;
+    }
 
+    public List<CharacterDTO>EntityList_DTOList(List<Character> characterList, boolean b) {
+        List<CharacterDTO> dtoList = new ArrayList<>();
+        for (Character entity : characterList) {
+            dtoList.add(characterEntity_characterDTO(entity, b));
+        }
+        return dtoList;
+    }
 
+    public CharacterBasicDTO Entity_characterBasicDTO(Character entity, boolean loadMovies){ //Todo Ver que no hace falta el boolean
+
+        CharacterBasicDTO basicDTO = new CharacterBasicDTO();
+
+        basicDTO.setName(entity.getName());
+        basicDTO.setImage(entity.getImagen());
+
+        return basicDTO;
+
+    }
+    public List<CharacterBasicDTO> EntityList_BasicDTOList(List<Character>characterList, boolean b){
+
+        List<CharacterBasicDTO> basicDToList = new ArrayList<>();
+
+        for (Character entity: characterList) {
+            basicDToList.add(Entity_characterBasicDTO(entity,b));
+        }
+        return basicDToList;
     }
 }

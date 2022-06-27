@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class GenderService {
@@ -36,5 +37,26 @@ public class GenderService {
          List<GenderDTO>genderDTOS = genderMap.entityList_genderDTOList(genders);
 
          return genderDTOS;
+    }
+
+    public void delete(String id){
+         genderRepository.deleteById(id);
+    }
+
+    public GenderDTO updateGender(String id, GenderDTO dto) throws Exception {
+
+         Optional<Gender> aswer = genderRepository.findById(id);
+
+         if (aswer.isPresent()){
+             Gender gender = aswer.get();
+             gender.setName(dto.getName());
+             gender.setImage(gender.getImage());
+
+             genderRepository.save(gender);
+             dto = genderMap.entity_genderDTO(gender);
+             return dto;
+         }else {
+             throw new Exception("The character was not found");
+         }
     }
 }

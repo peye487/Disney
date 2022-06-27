@@ -30,4 +30,25 @@ public class GenderController {
         return ResponseEntity.ok().body(genders);
     }
 
+    @DeleteMapping("/delete/{id}")
+    public  ResponseEntity <Void> delete (@PathVariable String id){
+
+        genderService.delete(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
+    @PostMapping("/update/{id}")
+    public ResponseEntity <GenderDTO> update(@PathVariable String id, @RequestBody GenderDTO genderDTO){
+
+        try {
+
+            GenderDTO updateGender = genderService.updateGender(id,genderDTO);
+            return ResponseEntity.status(HttpStatus.CREATED).body(updateGender);
+
+        }catch (Exception e) {
+            return  ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+
+    }
+
 }

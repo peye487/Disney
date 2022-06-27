@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -15,5 +16,6 @@ public class MovieDTO {
     private String title;
     private Date makingDate;
     private Integer qualification;
-    //VER COMO HAGO RELACION CON CHARACTER
+    private String genderId;
+    private List<CharacterDTO>charactersMovie;
 }
