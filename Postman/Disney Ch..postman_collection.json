@@ -326,7 +326,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\"=\"Aventura\"\r\n    \"image\"=\"/usr/tmp/img2.jpg\"\r\n}",
+							"raw": "{\r\n    \"username\":\"jpferreyra84@yahoo.com\",\r\n    \"password\":\"12345678\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -334,14 +334,15 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/gender",
+							"raw": "http://localhost:8080/auth/signup",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"gender"
+								"auth",
+								"signup"
 							]
 						}
 					},
