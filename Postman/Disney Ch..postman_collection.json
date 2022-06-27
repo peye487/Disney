@@ -1,0 +1,381 @@
+{
+	"info": {
+		"_postman_id": "e7976a2f-8cb8-4700-a4ff-b10a9e18769f",
+		"name": "Disney Ch.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21376646"
+	},
+	"item": [
+		{
+			"name": "Movie",
+			"item": [
+				{
+					"name": "AddMovie",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"image\":\"/usr/tmp/img2.jpg\",\r\n    \"title\":\"Toy Story\",    \r\n    \"makingDate\":\"1995-05-12\",\r\n    \"qualification\":9,\r\n    \"genderId\":\"429990a3-91cc-43ba-a50d-65fe351f534c\",\r\n    \"charactersMovie\": [\r\n        {\r\n            \"image\": \"jpg\",\r\n            \"name\": \"Goody\",\r\n            \"age\": 10,\r\n            \"weight\": 1.0,\r\n            \"history\": \"amiga\"\r\n        },\r\n        {\r\n            \"image\": \"jpg\",\r\n            \"name\": \"Tiro al blanco\",\r\n            \"age\": 8,\r\n            \"weight\": 1.0,\r\n            \"history\": \"amiga\"\r\n        }\r\n    \r\n    ]\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/movie",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movie"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddCharacterToMovie",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"image\":\"/usr/tmp/img2.jpg\",\r\n    \"title\":\"Toy Story\",    \r\n    \"makingDate\":\"1995-05-12\",\r\n    \"qualification\":9,\r\n    \"genderId\":\"429990a3-91cc-43ba-a50d-65fe351f534c\",\r\n    \"charactersMovie\": [\r\n        {\r\n            \"image\": \"jpg\",\r\n            \"name\": \"Goody\",\r\n            \"age\": 10,\r\n            \"weight\": 1.0,\r\n            \"history\": \"amiga\"\r\n        },\r\n        {\r\n            \"image\": \"jpg\",\r\n            \"name\": \"Tiro al blanco\",\r\n            \"age\": 8,\r\n            \"weight\": 1.0,\r\n            \"history\": \"amiga\"\r\n        }\r\n    \r\n    ]\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/movies/55fc7e5d-c117-48e4-afd5-ddab5874c036/characters/5f570a91-e055-4318-b8b3-aeada4348ba7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"55fc7e5d-c117-48e4-afd5-ddab5874c036",
+								"characters",
+								"5f570a91-e055-4318-b8b3-aeada4348ba7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MoviesDetails",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteMovie",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/characters/94c98db7-a5f2-4c1f-a16f-4c22a477e004",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"characters",
+								"94c98db7-a5f2-4c1f-a16f-4c22a477e004"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Movies?filter",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCharactertoMovie",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/movies/55fc7e5d-c117-48e4-afd5-ddab5874c036/characters/cd5f59d1-dfa0-4f41-8845-1f719cb6bee7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"55fc7e5d-c117-48e4-afd5-ddab5874c036",
+								"characters",
+								"cd5f59d1-dfa0-4f41-8845-1f719cb6bee7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateMovie",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"image\":\"/usr/tmp/img76.jpg\",\r\n    \"title\":\"Cars EDITADO 222\",    \r\n    \"makingDate\":\"2019-03-02\",\r\n    \"qualification\":9,\r\n     \"genderId\":\"cd24b24e-7992-4f62-9325-7e8eee12f94d\"\r\n   \r\n    \r\n}  ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/movies/update/babe7890-1946-4a99-936d-bec00dabbcdd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"update",
+								"babe7890-1946-4a99-936d-bec00dabbcdd"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Character",
+			"item": [
+				{
+					"name": "AddCharacter",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"image\": \"jpg\",\r\n    \"name\": \"dory\",\r\n    \"age\": \"10\",\r\n    \"weight\": \"1\",\r\n    \"history\": \"amiga\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/characters",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"characters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateCharacter",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"image\": \"jpg\",\r\n    \"name\": \"dory\",\r\n    \"age\": \"10\",\r\n    \"weight\": \"1\",\r\n    \"history\": \"amiga\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/characters",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"characters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CharactersDetails",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Characters?filter",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCharacter",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/characters/94c98db7-a5f2-4c1f-a16f-4c22a477e004",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"characters",
+								"94c98db7-a5f2-4c1f-a16f-4c22a477e004"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Gender",
+			"item": [
+				{
+					"name": "Genders",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\"=\"Aventura\"\r\n    \"image\"=\"/usr/tmp/img2.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/gender",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"gender"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Genders",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteGender",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/characters/94c98db7-a5f2-4c1f-a16f-4c22a477e004",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"characters",
+								"94c98db7-a5f2-4c1f-a16f-4c22a477e004"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "AddUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\"=\"Aventura\"\r\n    \"image\"=\"/usr/tmp/img2.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/gender",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"gender"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Signin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\"=\"Aventura\"\r\n    \"image\"=\"/usr/tmp/img2.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/gender",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"gender"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
